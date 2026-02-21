@@ -1,9 +1,9 @@
 <!-- partede la api para eliminar productos del carrito -->
 <?php
 session_start();
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $productId = $_POST['product_id'];
-    
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    parse_str(file_get_contents("php://input"), $_DELETE); $productId = $_DELETE['product_id'];
+
     // aqui verifica si esta en el carrito pa eliminarlo
     if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as $key => $item) {
