@@ -1,0 +1,88 @@
+[
+    {
+        "id": 1,
+        "nombre": "Curso de Bootstrap",
+        "descripcion": "Aprende a crear interfaces responsivas",
+        "precio": 25,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691501/bootstrap_thumbnail_u1y2uv.avif"
+    },
+    {
+        "id": 2,
+        "nombre": "Curso de Laravel",
+        "descripcion": "Construye APIs modernas con PHP",
+        "precio": 40,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691502/imagen-curso-laravel-74_bcsjdt.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Curso de Node.js",
+        "descripcion": "Crea APIs rápidas y escalables",
+        "precio": 35,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691534/maxresdefault_nuqboz.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Curso de React",
+        "descripcion": "Desarrolla interfaces dinámicas con JavaScript",
+        "precio": 30,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691588/maxresdefault_pcbslb.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Curso de Python",
+        "descripcion": "Aprende a programar con uno de los lenguajes más populares",
+        "precio": 20,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691618/hq720_wncbog.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Curso de Java",
+        "descripcion": "Domina la programación orientada a objetos",
+        "precio": 30,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691687/curso-java_lcn0xk.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Curso de C#",
+        "descripcion": "Desarrolla aplicaciones con el lenguaje de Microsoft",
+        "precio": 30,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691839/ban-c_moekxf.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Curso de SQL",
+        "descripcion": "Aprende a gestionar bases de datos relacionales",
+        "precio": 15,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691879/maxresdefault_ctyfmw.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Curso de Git",
+        "descripcion": "Control de versiones para desarrolladores",
+        "precio": 10,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691904/maxresdefault_a2j9so.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "Curso de Docker",
+        "descripcion": "Contenedores para desarrollo y despliegue",
+        "precio": 25,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691944/maxresdefault_mpsl86.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "Curso de Kubernetes",
+        "descripcion": "Orquestación de contenedores a gran escala",
+        "precio": 35,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691947/hq720_o2idkr.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "Curso de AWS",
+        "descripcion": "Servicios en la nube de Amazon",
+        "precio": 40,
+        "imagen": "https://res.cloudinary.com/dhotqeo6c/image/upload/v1771691967/fbads-aws-introduccion_teikwx.jpg"
+    }
+
+
+]
