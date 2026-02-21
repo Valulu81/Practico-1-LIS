@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // por si quiere volver a meterlo
+    // respuesta de estado + carrito
     echo json_encode([
         'status' => 'success',
         'message' => $mensajes,
