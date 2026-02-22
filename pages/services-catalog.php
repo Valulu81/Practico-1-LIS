@@ -12,6 +12,7 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
     <title>Primer practico</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/services-catalog.css">
 </head>
 
 <body>
@@ -19,15 +20,15 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
 <div class="container-fluid min-vh-100 d-flex flex-column">
 
     <!-- cabezas jajajjaj lol -->
-    <header class="bg-dark text-white text-center p-3">
-        <h1>Sistema de servicioss</h1>
+    <header class="text-center p-3">
+        <h1>UDB Academy sv</h1>
     </header>
     <div class="flex-grow-1">
         <div class="row h-100">
             <!-- menu -->
-             <nav class="col-md-4 col-lg-3 bg-light border-end p-3 d-flex flex-column">
+             <nav class="col-md-4 col-lg-3 bg-light p-3 d-flex flex-column">
                 <h5 class="mb-3 text-center">
-                    Mi carrito sv jajajajaja lol xd ya no puedo 
+                    Mi carrito sv  
                 </h5>
                 <!-- bote del carrito -->
                  <div id="cart-body" class="flex-grow-1 border rounded p-2 mb-3 bg-white overflow-auto">
@@ -36,10 +37,8 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
                 <!-- total -->
                  <div class="mb-2 text-end">
                     <h6 class="text-center">
- Items: <span id="contador">0</span>
-</h6>
-                    <strong><p id="contador">Total de items: 0</p></strong>
-                    <div id="info" class="small  text-end"></div>
+                    <strong>Total de items:<span id="contador">0</span></strong>
+                    <div id="info" class="text-end"></div>
                     <strong>Total: $<span id="total">0.00</span></strong>
                 </div>
                 <button id="btn-comprar" class="btn btn-success w-100 mt-auto">Procesar compra</button>
@@ -48,8 +47,6 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
 
             <!--El main-->
             <main class="col-md-8 col-lg-9 p-4">
-
-                <!--la fucking alerta que no funciona -->
                 <div id="alerta" class="alert alert-primary d-none" role="alert">
                     Curso agregado al carrito
                 </div>
@@ -86,13 +83,10 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
             </main>
         </div>
     </div>
-    <!--FOOTER-->
-    <footer class="bg-dark text-white text-center p-3">
-
+    <footer class="text-center p-3">
         <p class="mb-0">
             Aca nuestros nombres 
         </p>
-
     </footer>
 
 </div>

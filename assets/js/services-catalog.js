@@ -37,6 +37,8 @@ function agregarAlCarrito(id) {
 function renderCarrito(carrito) {
     const contenedor = document.getElementById("cart-body");
     const totalSpan = document.getElementById("total");
+    const contador = document.getElementById("contador");
+    let totalItems=0;
     // Si está vacío
     if (carrito.length === 0) {
         contenedor.innerHTML = `
@@ -55,6 +57,8 @@ function renderCarrito(carrito) {
         let desactivarMenos= item.cantidad <= 1 ? "disabled" : "";
         let desactivarMas  = item.cantidad >= 10 ? "disabled" : "";
         let subtotal = item.precio * item.cantidad;
+        totalItems += item.cantidad;
+        contador.textContent=totalItems;
         total += subtotal;
         html += `
         <div class="border p-2 mb-2 mt-4 fs-5">
@@ -63,14 +67,14 @@ function renderCarrito(carrito) {
             <strong>$${subtotal}</strong>
             <div class="mt-2 d-flex gap-2">
                 <button 
-                    class="btn btn-sm btn-secondary mt-2 px-3"
+                    class="btn btn-sm btn-outline-secondary mt-2 px-3"
                     ${desactivarMenos}
                     onclick="cambiarCantidad(${item.product_id}, -1)">
                     -
                 </button>
 
                 <button 
-                    class="btn btn-sm btn-secondary mt-2 px-3"
+                    class="btn btn-sm btn-outline-secondary mt-2 px-3"
                     ${desactivarMas}
                     onclick="cambiarCantidad(${item.product_id}, 1)">
                     +
@@ -78,16 +82,14 @@ function renderCarrito(carrito) {
                 <button 
                     class="btn btn-sm btn-danger mt-2 px-3"
                     onclick="eliminarProducto(${item.product_id})">
-                    X
+                    Eliminar
                 </button>
             </div>
         </div>
         `;
     });
     contenedor.innerHTML = html;
-    //totalSpan.textContent = total.toFixed(3);
-
-    //La logica del cuento
+    //La logica del descuento
     let descuento = 0;
     if(total>=500 && total<1000){
         descuento = total *0.05;
@@ -104,7 +106,6 @@ function renderCarrito(carrito) {
     Subtotal:$ ${total.toFixed(3)} <br>
     Descuento: $ ${descuento.toFixed(3)}<br>
     IVA: $ ${iva.toFixed(3)}<br>`;
-    let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
 }
 
 function cambiarCantidad(id, cambio) {
