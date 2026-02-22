@@ -36,7 +36,6 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
                 </div>
                 <!-- total -->
                  <div class="mb-2 text-end">
-                    <h6 class="text-center">
                     <strong>Total de items:<span id="contador">0</span></strong>
                     <div id="info" class="text-end"></div>
                     <strong>Total: $<span id="total">0.00</span></strong>
