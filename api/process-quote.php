@@ -1,4 +1,3 @@
-<!-- partede la api para procesar cotizaciones -->
 <?php
 session_start();
 

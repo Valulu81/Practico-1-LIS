@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practico 1</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+// Redirige al catálogo
+header("Location: pages/services-catalog.php");
+exit;

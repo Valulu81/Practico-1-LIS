@@ -1,4 +1,3 @@
-<!-- parte de la api para actualizar productos del carrito -->
 <?php
 session_start();
 header('Content-Type: application/json');
@@ -17,13 +16,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updated = false;
 
     // verifica si esta en el carrito pa actualizarlo
-    if (isset($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as &$item) {
-            if ($item['product_id'] == $productId) {
-                $item['cantidad'] = $cantidad; // suma la cantidad actual con la nueva
-                $updated = true;
-                break;
+    // /* voy a modificar aca ya que me esta dando conflicto
+    // de que si yo quiero agregar un servicio por el boton y luego por el 
+    // + me lo borra todo lo que tenia*/
+    // if (isset($_SESSION['cart'])) {
+    //     foreach ($_SESSION['cart'] as &$item) {
+    //         if ($item['product_id'] == $productId) {
+    //             $item['cantidad'] = $cantidad; // suma la cantidad actual con la nueva
+    //             $updated = true;
+    //             break;
+    //         }
+    //     }
+    // }
+
+    foreach($_SESSION['cart'] as &$item){
+        if($item['product_id']==$productId){
+            //lo mismo que tenias solo que aca tambien le suma lo del boton porque si los agrega de ambos lados
+            $actual=$item['cantidad'];
+            $nueva = $actual+$cantidad;
+            //los limites
+            if($nueva<1){
+                $nueva=1;
+            } 
+            if($nueva>10){
+                $nueva=10;
             }
+            //actualizo
+            $item['cantidad']=$nueva;
+            $updated= true;
+            break;
         }
     }
 

@@ -1,4 +1,3 @@
-<!-- partede la api para eliminar productos del carrito -->
 <?php
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
