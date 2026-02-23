@@ -238,6 +238,10 @@ document.getElementById("formCotizacion").addEventListener("submit", function (e
         .then(res => res.json())
         .then(data => {
             if (data.status === "success") {
+                const modal = bootstrap.Modal.getInstance(document.getElementById("clienteModal"));
+                modal.hide();
+                vaciarCarrito();
+
                 alert("Cotización generada: " + data.quote.codigo +
                     "\nValidez: " + data.quote.validez);
             } else {
