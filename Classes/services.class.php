@@ -9,14 +9,16 @@ class Service {
     private $descripcion;
     private $precio;
     private $imagen;
-    public function __construct($id, $nombre, $descripcion, $precio, $imagen) {
+    private $categoria;
+
+    public function __construct($id, $nombre, $descripcion, $precio, $imagen, $categoria) {
 
         $this->id = $id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->precio = $precio;
         $this->imagen = $imagen;
-
+        $this->categoria = $categoria;
     }
 
     // getters
@@ -38,6 +40,10 @@ class Service {
 
     public function getImagen() {
         return $this->imagen;
+    }
+
+    public function getCategoria() {
+        return $this->categoria;
     }
 
     // se usa un metodo estatico 
@@ -62,7 +68,8 @@ class Service {
                 $item['nombre'],
                 $item['descripcion'],
                 $item['precio'],
-                $item['imagen']
+                $item['imagen'],
+                $item['categoria']
             );
             // y esos datso los lleno en el array
             $servicios[] = $servicio;

@@ -1,6 +1,7 @@
 <?php
 // clase de cuotas
-class Quote {
+class Quote
+{
     public $code;
     public $client;
     public $items;
@@ -9,7 +10,8 @@ class Quote {
     public $total;
     public $iva;
 
-    public function agregarItem($id, $name, $description, $price, $category) {
+    public function agregarItem($id, $name, $description, $price, $category)
+    {
         $this->items[] = [
             'id' => $id,
             'name' => $name,
@@ -17,18 +19,14 @@ class Quote {
             'price' => $price,
             'category' => $category
         ];
-        
     }
 
-    public function CalcularSubtotal(){
+    public function CalcularSubtotal()
+    {
         $this->subtotal = 0;
         foreach ($this->items as $item) {
             $this->subtotal += $item['price'];
         }
-    }
-
-    public function CalcularDescuento($subtotal) {
-        
     }
 
 }

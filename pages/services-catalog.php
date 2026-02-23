@@ -1,12 +1,13 @@
 <?php
 require_once "../classes/services.class.php";
 
-// aca para jalar los recursos deñ jason
+// aca para jalar los recursos del jason
 $servicios = Service::cargarDatos("../assets/json/cursos.json");
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Primer practico</title>
@@ -17,80 +18,118 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
 
 <body>
 
-<div class="container-fluid min-vh-100 d-flex flex-column">
+    <div class="container-fluid min-vh-100 d-flex flex-column">
 
-    <!-- cabezas jajajjaj lol -->
-    <header class="text-center p-3">
-        <h1>UDB Academy sv</h1>
-    </header>
-    <div class="flex-grow-1">
-        <div class="row h-100">
-            <!-- menu -->
-             <nav class="col-md-4 col-lg-3 bg-light p-3 d-flex flex-column">
-                <h5 class="mb-3 text-center">
-                    Mi carrito sv  
-                </h5>
-                <!-- bote del carrito -->
-                 <div id="cart-body" class="flex-grow-1 border rounded p-2 mb-3 bg-white overflow-auto">
-                    <p class="text-muted text-center">Carrito vacío</p>
-                </div>
-                <!-- total -->
-                 <div class="mb-2 text-end">
-                    <strong>Total de items:<span id="contador">0</span></strong>
-                    <div id="info" class="text-end"></div>
-                    <strong>Total: $<span id="total">0.00</span></strong>
-                </div>
-                <button id="btn-comprar" class="btn btn-success w-100 mt-auto">Procesar compra</button>
-                <button class="btn btn-danger w-100 mt-2" onclick="vaciarCarrito()">Vciar el carro</button>       
-            </nav>
+        <!-- cabezas jajajjaj lol -->
+        <header class="text-center p-3">
+            <h1>UDB Academy sv</h1>
+        </header>
+        <div class="flex-grow-1 ">
+            <div class="row h-100">
+                <!-- menu -->
+                <nav class="col-md-4 col-lg-3 bg-light p-3 d-flex flex-column vh-100">
+                    <h5 class="mb-3 text-center">Mi carrito sv</h5>
 
-            <!--El main-->
-            <main class="col-md-8 col-lg-9 p-4">
-                <div id="alerta" class="alert alert-primary d-none" role="alert">
-                    Curso agregado al carrito
-                </div>
-                <!--El catalogo -->
-                <h3 class="mb-3">Catálogo</h3>
-                <div class="row g-4">
-                    <?php foreach ($servicios as $s): ?>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card" style="width: 18rem;">
+                    <div id="alerta" class="alert alert-primary d-none" role="alert">
+                        Curso agregado al carrito
+                    </div>
 
-                                <img 
-                                    src="<?= $s->getImagen() ?>" 
-                                    class="card-img-top" 
-                                    alt="Curso">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <?= $s->getNombre() ?>
-                                    </h5>
-                                    <p class="card-text">
-                                        <?= $s->getDescripcion() ?>
-                                    </p>
-                                    <p><strong>$<?= $s->getPrecio() ?></strong></p>
-                                    <button
-                                        class="btn btn-primary btn-add w-100"
-                                        data-id="<?= $s->getId() ?>"
-                                    >
-                                        Agregar al carrito
-                                    </button>
+                    <!-- bote del carrito -->
+                    <div id="cart-body" class="flex-grow-1 border rounded p-2 mb-3 bg-white overflow-auto">
+                        <p class="text-muted text-center">Carrito vacío</p>
+                    </div>
+
+                    <!-- total -->
+                    <div class="mt-auto ">
+                        <div class="mb-2 text-end">
+                            <strong>Total de items:<span id="contador">0</span></strong>
+                            <div id="info" class="text-end"></div>
+                            <strong>Total: $<span id="total">0.00</span></strong>
+                        </div>
+                        <button id="btn-comprar" class="btn btn-success w-100">Procesar compra</button>
+                        <button class="btn btn-danger w-100 mt-2" onclick="vaciarCarrito()">Vaciar el carro</button>
+                        <a href="view-quotes.php" class="btn btn-warning w-100 mt-2">Ver cotizaciones</a>
+                    </div>
+                </nav>
+
+                <!-- el main -->
+                <main class="col-md-8 col-lg-9 d-flex flex-column vh-100 p-4">
+                    <div class="sticky-top bg-white pb-3">
+                        <!--El catalogo -->
+                        <h3 class="mb-3">Catálogo</h3>
+                        <form class="d-flex my-3" role="search" onsubmit="return buscar();">
+                            <input id="filtrar" class="form-control me-2" type="search"
+                                placeholder="Buscar cursos" aria-label="Search">
+                        </form>
+                    </div>
+
+                    <!-- cursos con scroll -->
+                    <div class="flex-grow-1 overflow-auto">
+                        <div class="row g-4">
+                            <?php foreach ($servicios as $s): ?>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="<?= $s->getImagen() ?>" class="card-img-top" alt="Curso">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $s->getNombre() ?></h5>
+                                            <p class="text-muted">Categoría: <?= $s->getCategoria() ?></p>
+                                            <p class="card-text"><?= $s->getDescripcion() ?></p>
+                                            <p><strong>$<?= $s->getPrecio() ?></strong></p>
+                                            <button class="btn btn-primary btn-add w-100" data-id="<?= $s->getId() ?>">
+                                                Agregar al carrito
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <!--modal pa cuando se cree el pago-->
+            <div class="modal fade" id="clienteModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <form id="formCotizacion" class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Datos del Cliente</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label>Nombre</label>
+                                <input type="text" name="nombre" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Empresa</label>
+                                <input type="text" name="empresa" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Email</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Teléfono</label>
+                                <input type="text" name="telefono" class="form-control">
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Generar Cotización</button>
+                        </div>
+                    </form>
                 </div>
-            </main>
+            </div>
         </div>
-    </div>
-    <footer class="text-center p-3">
-        <p class="mb-0">
-            Aca nuestros nombres 
-        </p>
-    </footer>
+        <footer class="text-center p-3">
+            <p class="mb-0">
+                Valeria Liseth Paredes Lara
+            </p>
+        </footer>
 
-</div>
-<script src="../assets/js/services-catalog.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </div>
+    <script src="../assets/js/services-catalog.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
+
 </html>
