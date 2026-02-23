@@ -22,7 +22,6 @@ function agregarAlCarrito(id) {
         .then(res => res.json())
         .then(data => {
             if (data.status === "success") {
-                //renderCarrito(data.cart);
                 carritoActual = data.cart;
                 renderCarrito(data.cart);
                 mostrarAlerta("Curso agregado");
@@ -39,7 +38,7 @@ function renderCarrito(carrito) {
     const totalSpan = document.getElementById("total");
     const contador = document.getElementById("contador");
     let totalItems = 0;
-    // Si está vacío
+    // Si está vacio
     if (carrito.length === 0) {
         contenedor.innerHTML = `
             <p class="text-muted text-center">
