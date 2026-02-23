@@ -20,7 +20,7 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
 
     <div class="container-fluid min-vh-100 d-flex flex-column">
 
-        <!-- cabezas jajajjaj lol -->
+        <!-- cabeza -->
         <header class="text-center p-3">
             <h1>UDB Academy sv</h1>
         </header>

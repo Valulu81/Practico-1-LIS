@@ -23,7 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fecha = date("Y-m-d");
     $validez = date("Y-m-d", strtotime("+7 days"));
 
-    $total = array_sum(array_column($_SESSION['cart'], 'precio'));
+    // $total = array_sum(array_column($_SESSION['cart'], 'precio'));
+    // Calcular subtotal real
+    $subtotal = 0;
+    foreach ($_SESSION['cart'] as $item) {
+    $subtotal += $item['precio'] * $item['cantidad'];
+    }if ($subtotal < 100) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "La cotización debe tener un subtotal mínimo de $100"
+    ]);
+    exit;
+    }
     $cantidadServicios = count($_SESSION['cart']);
 
     // aqui datos genrales con lo de cuross

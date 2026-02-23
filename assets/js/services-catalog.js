@@ -228,7 +228,13 @@ document.getElementById("btn-comprar").addEventListener("click", () => {
 });
 
 document.getElementById("formCotizacion").addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault();let subtotal = 0;
+    carritoActual.forEach(item => {
+        subtotal += item.precio * item.cantidad;
+    });
+    if (subtotal < 100) {
+        alert("Error");
+    }
     const formData = new FormData(this);
 
     fetch("../api/process-quote.php", {
