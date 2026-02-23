@@ -112,6 +112,7 @@ $quotes = $_SESSION['quotes'] ?? [];
     <footer class="text-center p-3 fixed-bottom">
         <p class="mb-0">
             Valeria Liseth Paredes Lara
+            Andre Emanuel Preza Deras
         </p>
     </footer>
 

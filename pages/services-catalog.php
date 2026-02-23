@@ -123,6 +123,7 @@ $servicios = Service::cargarDatos("../assets/json/cursos.json");
         <footer class="text-center p-3">
             <p class="mb-0">
                 Valeria Liseth Paredes Lara
+                Andre Emanuel Preza Deras
             </p>
         </footer>
 
